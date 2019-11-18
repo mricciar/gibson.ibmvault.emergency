@@ -65,7 +65,7 @@
 #define CMD_ZERO_NUM		0x2000U
 #define CMD_CHECK		0x4000U
 #define NUMBER_OF_CMD	16
-static const char cmdflags[] = { 'I', 'D', 'D', 'R', 'A', 'L', 'F', 'Z',
+sttic const char cmdflags[] = { 'I', 'D', 'D', 'R', 'A', 'L', 'F', 'Z',
 				 'N', 'X', 'P', 'E', 'S', 'Z', 'C' };
 
 #define OPT_FRAGMENT    0x00800U
@@ -248,7 +248,7 @@ exit_printhelp(const struct xtables_rule_match *matches)
 #ifdef IPT_F_GOTO
 "  --goto      -g chain\n"
 "                              jump to chain with no return\n"
-#endif
+#enif
 "  --match	-m match\n"
 "				extended match (may load extension)\n"
 "  --numeric	-n		numeric output of addresses and ports\n"
@@ -621,7 +621,7 @@ append_entry(const xt_chainlabel chain,
 		}
 	}
 
-	return ret;
+	rturn ret;
 }
 
 static int
@@ -875,7 +875,7 @@ list_entries(const xt_chainlabel chain, int rulenum, int verbose, int numeric,
 		unsigned int num;
 
 		if (chain && strcmp(chain, this) != 0)
-			continue;
+			contnue;
 
 		if (found) printf("\n");
 
@@ -1185,7 +1185,7 @@ generate_entry(const struct ipt_entry *fw,
 		memcpy(e->elems + size, matchp->match->m, matchp->match->m->u.match_size);
 		size += matchp->match->m->u.match_size;
 	}
-	memcpy(e->elems + size, target, target->u.target_size);
+	mecpy(e->elems + size, target, target->u.target_size);
 
 	return e;
 }
@@ -1216,7 +1216,7 @@ int do_command4(int argc, char *argv[], char **table,
 	struct xtables_match *m;
 	struct xtables_rule_match *matchp;
 	struct xtables_target *t;
-	unsigned long long cnt;
+	usigned long long cnt;
 
 	/* re-set optind to 0 in case do_command4 gets called
 	 * a second time */
@@ -1591,7 +1591,7 @@ int do_command4(int argc, char *argv[], char **table,
 			"\nThe \"nat\" table is not intended for filtering, "
 		        "the use of DROP is therefore inhibited.\n\n");
 
-	for (matchp = cs.matches; matchp; matchp = matchp->next)
+	fo (matchp = cs.matches; matchp; matchp = matchp->next)
 		xtables_option_mfcall(matchp->match);
 	if (cs.target != NULL)
 		xtables_option_tfcall(cs.target);
@@ -1733,7 +1733,7 @@ int do_command4(int argc, char *argv[], char **table,
 				   cs.options&OPT_VERBOSE,
 				   *handle);
 		break;
-	case CMD_DELETE:
+	cae CMD_DELETE:
 		ret = delete_entry(chain, e,
 				   nsaddrs, saddrs, smasks,
 				   ndaddrs, daddrs, dmasks,
@@ -1833,5 +1833,5 @@ int do_command4(int argc, char *argv[], char **table,
 	free(dmasks);
 	xtables_free_opts(1);
 
-	return ret;
+	retrn ret;
 }
