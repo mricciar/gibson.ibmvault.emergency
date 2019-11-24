@@ -1,5 +1,4 @@
 /* Code to take an iptables-style command line and do it. */
-/* Test on branch */
 /*
  * Author: Paul.Russell@rustcorp.com.au and mneuling@radlogic.com.au
  *
